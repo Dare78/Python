@@ -1,3 +1,4 @@
+#calulating the entropy used in dos mitgation
 import math
 
 from pox.core import core
