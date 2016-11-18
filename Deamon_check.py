@@ -58,27 +58,28 @@ def send_mail(msg,stat):
     server.sendmail("yourEmail", "TargetEmail", msg)
     server.exit()
 
-def main_t():
+def main_func():
     working = []
     not_working[]
     nothing=[]
+    thread=[]
     # opens the host file and list of host is created
     with open("host.txt", 'r') as fout:
         host = fout.readlines()
-        threads=[]
+        
         # for each host create a thread which runs SSH through log_in()
-        for h in host:
-            t = threading.Thread(target= log_in, arg = (h, ))
+        for ip in host:
+            new_thread = threading.Thread(target= log_in, arg = (ip, ))
             # check log_in()
-            t.start()
-            threads.append(t)
+            new_thread.start()
+            thread.append(t)
             # join the thread after finished
-            for t in threads:
-                t.join()
+            for x in thread:
+                x.join()
 #        send_mail(msg, Flag1 = True, Flag2 = False)
         send_mail(str(not_working),True)
         send_mail(str(working),False)
 
 
 if __name__=='__main__':
-    main_t()
+    main_func()
